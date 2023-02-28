@@ -5,5 +5,8 @@
 
 # eg: sudo yum install -y nginx
 
-sudo amazon-linux-extras install ansible2 -y
-sudo yum install git -y
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible
+sudo apt install git -y
+

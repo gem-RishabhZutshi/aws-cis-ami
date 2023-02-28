@@ -1,9 +1,9 @@
 {
     "profile": "default",
-    "region": "us-east-1",
-    "source_ami": "ami-03ca998611da0fe12",
-    "vpc_id": "vpc-0428abcd1234",
-    "subnet_id": "subnet-0123abcd4567",
+    "region": "ap-south-1",
+    "source_ami": "ami-0f8ca728008ff5af4",
+    "vpc_id": "vpc-0da3d69262c4b8191",
+    "subnet_id": "subnet-0ae080d9ef3249d19",
     "instance_type": "t3.micro",
     "ami_name_prefix": "cis-hardened-aws-ami"
 }

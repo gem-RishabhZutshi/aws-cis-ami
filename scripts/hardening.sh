@@ -20,4 +20,4 @@
 # sudo chmod og-rwx /etc/cron*
 
 # rm -rf /tmp/files
-sudo ansible-playbook -i /etc/ansible/hosts /tmp/files/site.yml --become
+sudo ansible-playbook /tmp/files/roles/playbook.yml --become

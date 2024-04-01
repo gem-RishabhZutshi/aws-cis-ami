@@ -1,14 +1,3 @@
-# This will build a CIS Level 1 hardened AMI from Amazon Linux 2 base AMI
-
-# Validate the template
-#   eg: packer validate cis-ami.pkr.hcl 
-
-# Set the correct variables in the variables.json file
-
-# A sample build command would look like this
-# packer build -var-file=variables.json cis-ami.pkr.hcl 
-
-# If you don't set the profile variable as above, it will take the following as default
 variable "profile" {
   type =  string
   default = "default"
@@ -44,7 +33,7 @@ locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 
   standard_tags = {
-    BaseOS = "Amazon Linux 2"
+    BaseOS = "Ubuntu"
   }
 
 }
@@ -62,7 +51,7 @@ source "amazon-ebs" "cis-ami" {
 
   // Amazon Linux 2 AMI ID
   source_ami    = "${var.source_ami}"
-  ssh_username  = "ec2-user"
+  ssh_username  = "ubuntu"
 
   // Set the AMI's Name tag with timestamp
   tag {
@@ -90,11 +79,11 @@ build {
   }
 
   provisioner "shell" {
-    script = "./scripts/hardening.sh"
+    script = "./scripts/ainstall.sh"
   }
 
   provisioner "shell" {
-    script = "./scripts/install.sh"
+    script = "./scripts/hardening.sh"
   }
 
 }
